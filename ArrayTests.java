@@ -33,4 +33,20 @@ public class ArrayTests {
     }
     return newArray; 
   }
+
+  @Test
+  static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { 
+      return 0.0;
+    }
+    double lowest = arr[0];
+    double sum = arr[0];
+    for(int i = 1; i < arr.length; i++) {
+      sum += arr[i];
+      if (arr[i] < lowest) {
+        lowest = arr[i];
+      }
+    }
+    return (sum - lowest) / (arr.length - 1);
+  }
 }
